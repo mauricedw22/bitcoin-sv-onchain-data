@@ -5,10 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { ChartModule } from 'primeng/chart';
+import { NavbarComponent } from './navbar/navbar.component';
+import { ChartsComponent } from './charts/charts.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    ChartsComponent
   ],
   imports: [
     BrowserModule,
