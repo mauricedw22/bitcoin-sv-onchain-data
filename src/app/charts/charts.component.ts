@@ -10,6 +10,7 @@ export class ChartsComponent implements OnInit {
     title = 'bsvdashboard';
 
     basicData: any;
+    basicData1: any;
 
     multiAxisData: any;
 
@@ -36,15 +37,28 @@ export class ChartsComponent implements OnInit {
                     borderColor: '#42A5F5',
                     tension: .4
                 },
-                {
-                    label: 'Second Dataset',
-                    data: [28, 48, 40, 19, 86, 27, 90],
-                    fill: false,
-                    borderColor: '#FFA726',
-                    tension: .4
-                }
+                // {
+                //     label: 'Second Dataset',
+                //     data: [28, 48, 40, 19, 86, 27, 90],
+                //     fill: false,
+                //     borderColor: '#FFA726',
+                //     tension: .4
+                // }
             ]
         };
+
+        this.basicData1 = {
+          labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+          datasets: [
+              {
+                  label: 'Block Height',
+                  data: [65, 59, 80, 81, 56, 55, 40],
+                  fill: false,
+                  borderColor: '#42A5F5',
+                  tension: .4
+              },
+          ]
+      };
 
         this.multiAxisData = {
             labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
