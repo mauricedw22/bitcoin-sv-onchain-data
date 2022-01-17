@@ -16,7 +16,7 @@ export class ChartsApiService {
   getChainData() {
     this.data = this.http.get(this.url);
     console.log(this.data);
-    // return this.http.get(this.url);
+    return this.http.get(this.url);
   }
 
 }

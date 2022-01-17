@@ -19,7 +19,8 @@ import { ChartsApiService } from './charts/services/charts-api.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ChartModule
+    ChartModule,
+    HttpClientModule
   ],
   providers: [ChartsApiService],
   bootstrap: [AppComponent]
