@@ -31,13 +31,4 @@ export class ChartsApiService {
 
   }
 
-  getBlockSizeData(){
-
-  }
- 
-  getTotalFeeData(){
-    
-
-  }
-
 }
