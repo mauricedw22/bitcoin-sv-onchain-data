@@ -52,15 +52,15 @@ export class ChartsApiService {
 
   }
 
-  getTxnValueData(){
+  getBlockData(){
 
     // this.data = this.http.get(this.info_url);
     // this.block_height = this.data.blocks;
 
     let url = this.blockbyheight_url + 722000;
 
-    this.data = this.http.get(url);
-    console.log(this.data);
+    this.data1 = this.http.get(url);
+    console.log(this.data1);
     return this.http.get(url);
 
     // return this.http.get(this.blockbyheight_url + this.block_height)

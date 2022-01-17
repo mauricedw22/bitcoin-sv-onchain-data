@@ -48,7 +48,7 @@ export class ChartsComponent implements OnInit {
         console.log("An error accessing Charts-Api Service");
       })
 
-      this.chartsApiService.getTxnValueData().subscribe((res)=>{
+      this.chartsApiService.getBlockData().subscribe((res)=>{
         this.result1 = JSON.stringify(res);
         this.txnvaluedata = JSON.parse(this.result1);
         console.log(this.txnvaluedata)
