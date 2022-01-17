@@ -11,6 +11,11 @@ export class ChartsComponent implements OnInit {
 
     basicData: any;
     basicData1: any;
+    basicData2: any;
+    basicData3: any;
+    basicData4: any;
+    basicData5: any;
+
 
     multiAxisData: any;
 
@@ -58,6 +63,58 @@ export class ChartsComponent implements OnInit {
                   tension: .4
               },
           ]
+        };
+
+      this.basicData2 = {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [
+            {
+                label: 'Block Height',
+                data: [65, 59, 80, 81, 56, 55, 40],
+                fill: false,
+                borderColor: '#42A5F5',
+                tension: .4
+            },
+        ]
+      };
+
+      this.basicData3 = {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [
+            {
+                label: 'Block Height',
+                data: [65, 59, 80, 81, 56, 55, 40],
+                fill: false,
+                borderColor: '#42A5F5',
+                tension: .4
+            },
+        ]
+      };
+
+      this.basicData4 = {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [
+            {
+                label: 'Block Height',
+                data: [65, 59, 80, 81, 56, 55, 40],
+                fill: false,
+                borderColor: '#42A5F5',
+                tension: .4
+            },
+        ]
+      };
+
+      this.basicData5 = {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [
+            {
+                label: 'Block Height',
+                data: [65, 59, 80, 81, 56, 55, 40],
+                fill: false,
+                borderColor: '#42A5F5',
+                tension: .4
+            },
+        ]
       };
 
         this.multiAxisData = {
