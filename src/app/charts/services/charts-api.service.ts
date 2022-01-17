@@ -20,6 +20,21 @@ export class ChartsApiService {
 
   constructor(private http: HttpClient) { }
 
+  // createEmployee(employee: any): Observable<any> {
+  //   return this.httpClient.post(this.employee_api_url + '/create', employee)
+  //     .pipe(map((resp: any) => resp.json()),
+  //       catchError(error => this.throwError(error))
+  //     )
+
+  // }
+  // getEmployees(): Observable<any> {
+  //   return this.httpClient.get(this.employee_api_url + '/read')
+  //     .pipe(map((resp: any) => resp.json()),
+  //       catchError(error => this.throwError(error))
+  //     )
+
+  // }
+
   getChainData() {
     this.data = this.http.get(this.info_url);
     console.log(this.data);
