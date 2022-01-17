@@ -27,7 +27,10 @@ export class ChartsComponent implements OnInit {
     basicOptions: any;
 
     data: any;
+    txnvaluedata: any;
+
     result: any;
+    result1: any;
 
     // subscription: Subscription;
 
@@ -38,17 +41,17 @@ export class ChartsComponent implements OnInit {
     ngOnInit() {
 
       this.chartsApiService.getChainData().subscribe((res)=>{
-        this.data = JSON.stringify(res);
-        this.result = JSON.parse(this.data);
-        console.log(this.result)
+        this.result = JSON.stringify(res);
+        this.data = JSON.parse(this.result);
+        console.log(this.data)
       }, (error) => {
         console.log("An error accessing Charts-Api Service");
       })
 
-      this.chartsApiService.getChainData().subscribe((res)=>{
-        this.data = JSON.stringify(res);
-        this.result = JSON.parse(this.data);
-        console.log(this.result)
+      this.chartsApiService.getTxnValueData().subscribe((res)=>{
+        this.result1 = JSON.stringify(res);
+        this.txnvaluedata = JSON.parse(this.result1);
+        console.log(this.txnvaluedata)
       }, (error) => {
         console.log("An error accessing Charts-Api Service");
       })

@@ -1,16 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { map, catchError } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChartsApiService {
 
-  info_url: string = 'https://api.whatsonchain.com/v1/bsv/main/chain/info';
-  blockbyheight_url: string = 'https://api.whatsonchain.com/v1/bsv/<network>/block/height/';
+  info_url: string = 'https://api.whatsonchain.com/v1/bsv/main/chain/info/';
+  blockbyheight_url: string = 'https://api.whatsonchain.com/v1/bsv/main/block/height/';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   data: any;
+  data1: any;
+  data2: any;
+  data3: any;
+  data4: any;
+  data5: any;
 
   block_height: any;
   block_value: any;
@@ -47,11 +54,19 @@ export class ChartsApiService {
 
   getTxnValueData(){
 
-    this.data = this.http.get(this.info_url);
-    this.block_height = this.data.blocks;
+    // this.data = this.http.get(this.info_url);
+    // this.block_height = this.data.blocks;
 
-    console.log(this.data)
-    return this.data;
+    let url = this.blockbyheight_url + 722000;
+
+    this.data = this.http.get(url);
+    console.log(this.data);
+    return this.http.get(url);
+
+    // return this.http.get(this.blockbyheight_url + this.block_height)
+    //   .pipe(map((resp: any) => resp.json()),
+    //     catchError(error => error)
+    //   )
 
     // for(let i=this.block_height;i=this.block_height-2;i--){
     //   // this.data = this.http.get(this.blockbyheight_url + this.block_height);
@@ -81,5 +96,10 @@ export class ChartsApiService {
     
 
   }
+
+  // throwError(error: any) {
+  //   console.error(error);
+  //   return Observable.throw(error.json().error || 'Server error');
+  // }
 
 }
