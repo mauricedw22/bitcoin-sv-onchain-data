@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ChartsApiService {
 
-  info_url: string = 'https://api.whatsonchain.com/v1/bsv/main/chain/info/';
+  info_url: string = 'https://api.whatsonchain.com/v1/bsv/main/chain/info';
   blockbyheight_url: string = 'https://api.whatsonchain.com/v1/bsv/main/block/height/';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 

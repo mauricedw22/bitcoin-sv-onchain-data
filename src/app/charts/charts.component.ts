@@ -27,7 +27,7 @@ export class ChartsComponent implements OnInit {
     basicOptions: any;
 
     data: any;
-    txnvaluedata: any;
+    blockdata: any;
 
     result: any;
     result1: any;
@@ -50,8 +50,8 @@ export class ChartsComponent implements OnInit {
 
       this.chartsApiService.getBlockData().subscribe((res)=>{
         this.result1 = JSON.stringify(res);
-        this.txnvaluedata = JSON.parse(this.result1);
-        console.log(this.txnvaluedata)
+        this.blockdata = JSON.parse(this.result1);
+        console.log(this.blockdata)
       }, (error) => {
         console.log("An error accessing Charts-Api Service");
       })
