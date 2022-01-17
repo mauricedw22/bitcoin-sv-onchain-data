@@ -35,19 +35,22 @@ export class ChartsApiService {
     this.data = this.http.get(this.info_url);
     this.block_height = this.data.blocks;
 
-    for(let i=this.block_height;i=this.block_height-2;i--){
-      // this.data = this.http.get(this.blockbyheight_url + this.block_height);
-      this.counterArray.push(i);
-    }
+    console.log(this.data)
+    return this.data;
 
-    for(let i=0;i<this.counterArray.length;i++){
-      this.data = this.http.get(this.blockbyheight_url + this.counterArray[i]);
-      this.block_value = this.data.vout[0].value;
-      this.txn_value += this.block_value;
-    }
+    // for(let i=this.block_height;i=this.block_height-2;i--){
+    //   // this.data = this.http.get(this.blockbyheight_url + this.block_height);
+    //   this.counterArray.push(i);
+    // }
 
-    console.log(this.txn_value);
-    return this.txn_value;
+    // for(let i=0;i<this.counterArray.length;i++){
+    //   this.data = this.http.get(this.blockbyheight_url + this.counterArray[i]);
+    //   this.block_value = this.data.vout[0].value;
+    //   this.txn_value += this.block_value;
+    // }
+
+    // console.log(this.txn_value);
+    // return this.txn_value;
 
   }
 

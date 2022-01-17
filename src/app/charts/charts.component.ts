@@ -41,6 +41,16 @@ export class ChartsComponent implements OnInit {
         this.data = JSON.stringify(res);
         this.result = JSON.parse(this.data);
         console.log(this.result)
+      }, (error) => {
+        console.log("An error accessing Charts-Api Service");
+      })
+
+      this.chartsApiService.getChainData().subscribe((res)=>{
+        this.data = JSON.stringify(res);
+        this.result = JSON.parse(this.data);
+        console.log(this.result)
+      }, (error) => {
+        console.log("An error accessing Charts-Api Service");
       })
 
       this.basicData = {
