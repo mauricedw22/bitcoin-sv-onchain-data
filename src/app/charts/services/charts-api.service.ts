@@ -19,4 +19,25 @@ export class ChartsApiService {
     return this.http.get(this.url);
   }
 
+  getBlockHeightData(){
+
+  }
+
+  getTxnValueData(){
+
+  }
+
+  getTxnVolumeData(){
+
+  }
+
+  getBlockSizeData(){
+
+  }
+ 
+  getTotalFeeData(){
+    
+
+  }
+
 }
