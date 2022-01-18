@@ -43,20 +43,40 @@ export class ChartsComponent implements OnInit {
 
     ngOnInit() {
 
-      function prepare_array(data: Object = {}) {
+      function prepare_array() {
         //Result should be in JSON
         // data["format"] = "json";
     
         const request = new Axios({
-            url: `https://api.whatsonchain.com/v1/bsv/main/chain/info`,
+            url: 'https://api.whatsonchain.com/v1/bsv/main/chain/info',
             method: "GET",
-            params: data,
+            params: {"format":"json"},
             responseType: "json",
         });
     
         console.log(request)
-        return request;
+        // return request;
       };
+
+      // const getData = async (): Promise<Data | ServerError> => {
+      //   try {
+      //     const res = await axios.get<Data>(
+      //       "https://blog-server.gagandeogan.repl.co"
+      //     );
+      //     return res.data;
+      //   } catch (err) {
+      //     if (axios.isAxiosError(err)) {
+      //       const serverError = err as AxiosError<ServerError>;
+      //       if (serverError && serverError.response) {
+      //         return serverError.response.data;
+      //       }
+      //     }
+      //     return { error: "something went wrong!" };
+      //   }
+      // };
+      
+
+      prepare_array();
 
       this.chartsApiService.getChainData().subscribe((res)=>{
         this.result = JSON.stringify(res);
