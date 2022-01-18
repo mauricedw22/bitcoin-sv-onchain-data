@@ -47,6 +47,20 @@ export class ChartsComponent implements OnInit {
 
       }
 
+      // function createRequest<T>(path: string, data: Object = {}) {
+      //   //Result should be in JSON
+      //   data["format"] = "json";
+    
+      //   const request = Axios({
+      //       url: `https://nominatim.openstreetmap.org/${path}`,
+      //       method: "GET",
+      //       params: data,
+      //       responseType: "json",
+      //   });
+    
+      //   return request;
+      // };
+
       this.chartsApiService.getChainData().subscribe((res)=>{
         this.result = JSON.stringify(res);
         this.data = JSON.parse(this.result);
