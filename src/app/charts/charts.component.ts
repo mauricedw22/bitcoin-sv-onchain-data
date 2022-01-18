@@ -42,6 +42,11 @@ export class ChartsComponent implements OnInit {
 
     ngOnInit() {
 
+      function prepare_array(){
+        
+
+      }
+
       this.chartsApiService.getChainData().subscribe((res)=>{
         this.result = JSON.stringify(res);
         this.data = JSON.parse(this.result);
