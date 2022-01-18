@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartsApiService } from './services/charts-api.service';
+import { Axios } from '../../../node_modules/axios';
 
 @Component({
   selector: 'charts',
@@ -42,24 +43,20 @@ export class ChartsComponent implements OnInit {
 
     ngOnInit() {
 
-      function prepare_array(){
-        
-
-      }
-
-      // function createRequest<T>(path: string, data: Object = {}) {
-      //   //Result should be in JSON
-      //   data["format"] = "json";
+      function prepare_array(data: Object = {}) {
+        //Result should be in JSON
+        // data["format"] = "json";
     
-      //   const request = Axios({
-      //       url: `https://nominatim.openstreetmap.org/${path}`,
-      //       method: "GET",
-      //       params: data,
-      //       responseType: "json",
-      //   });
+        const request = new Axios({
+            url: `https://api.whatsonchain.com/v1/bsv/main/chain/info`,
+            method: "GET",
+            params: data,
+            responseType: "json",
+        });
     
-      //   return request;
-      // };
+        console.log(request)
+        return request;
+      };
 
       this.chartsApiService.getChainData().subscribe((res)=>{
         this.result = JSON.stringify(res);
