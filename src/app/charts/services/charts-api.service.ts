@@ -52,12 +52,12 @@ export class ChartsApiService {
 
   }
 
-  getBlockData(){
+  getBlockData(num: Number){
 
     // this.data = this.http.get(this.info_url);
     // this.block_height = this.data.blocks;
 
-    let url = this.blockbyheight_url + 722000;
+    let url = this.blockbyheight_url + num;
 
     this.data1 = this.http.get(url);
     console.log(this.data1);
