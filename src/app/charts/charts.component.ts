@@ -32,7 +32,7 @@ export class ChartsComponent implements OnInit {
     result: any;
     result1: any;
 
-    arr1: Array<Number> = [722845,722844,722843];
+    block_array: Array<Number> = [722845,722844,722843];
 
     // subscription: Subscription;
 
@@ -50,8 +50,8 @@ export class ChartsComponent implements OnInit {
         console.log("An error accessing Charts-Api Service");
       })
 
-      for(let i=0;i<this.arr1.length;i++){
-        this.chartsApiService.getBlockData(this.arr1[i]).subscribe((res)=>{
+      for(let i=0;i<this.block_array.length;i++){
+        this.chartsApiService.getBlockData(this.block_array[i]).subscribe((res)=>{
           this.result1 = JSON.stringify(res);
           this.blockdata = JSON.parse(this.result1);
           console.log(this.blockdata)
