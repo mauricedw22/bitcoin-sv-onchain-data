@@ -45,19 +45,25 @@ export class ChartsComponent implements OnInit {
       async function prepare_array() {
         let arr1 = [];
 
-        for(let i=0;i<100;i++){
-          const response = await fetch('https://api.whatsonchain.com/v1/bsv/main/block/height/'); //https://api.whatsonchain.com/v1/bsv/main/chain/info
-          const body = await response.text();
-          const resp = JSON.parse(body);
+        const response = await fetch('https://api.whatsonchain.com/v1/bsv/main/chain/info');
+        const body = await response.text();
+        const info = JSON.parse(body);
+        console.log(info.blocks)
 
-          console.log(resp.blocks);
-          arr1.push(resp.blocks);
+        for(let i=info.blocks-100;i<info.blocks;i++){
+          const block_response = await fetch('https://api.whatsonchain.com/v1/bsv/main/block/height/' + String(i));
+          const resbody = await block_response.text();
+          const resp = JSON.parse(resbody);
+
+          // console.log(resp);
+          arr1.push(resp);
         }
 
+        // console.log(arr1);
         return arr1;
       };
 
-      // prepare_array();
+      prepare_array();
 
       this.chartsApiService.getChainData().subscribe((res)=>{
         this.result = JSON.stringify(res);
