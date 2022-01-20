@@ -32,7 +32,7 @@ export class ChartsComponent implements OnInit {
     result: any;
     result1: any;
 
-    block_array: Array<Number> = [722845,722844,722843];
+    block_array: Array<Number> = [];
 
     // subscription: Subscription;
 
@@ -43,14 +43,21 @@ export class ChartsComponent implements OnInit {
     ngOnInit() {
 
       async function prepare_array() {
-        const response = await fetch('https://api.whatsonchain.com/v1/bsv/main/chain/info');
-        const body = await response.text();
-        const resp = JSON.parse(body);
+        let arr1 = [];
 
-        console.log(resp.blocks);
+        for(let i=0;i<100;i++){
+          const response = await fetch('https://api.whatsonchain.com/v1/bsv/main/block/height/'); //https://api.whatsonchain.com/v1/bsv/main/chain/info
+          const body = await response.text();
+          const resp = JSON.parse(body);
+
+          console.log(resp.blocks);
+          arr1.push(resp.blocks);
+        }
+
+        return arr1;
       };
 
-      prepare_array();
+      // prepare_array();
 
       this.chartsApiService.getChainData().subscribe((res)=>{
         this.result = JSON.stringify(res);
