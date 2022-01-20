@@ -52,11 +52,13 @@ export class ChartsComponent implements OnInit {
           const resbody = await block_response.text();
           const resp = JSON.parse(resbody);
 
+          let obj = {"height": resp.height, "size": resp.size, "time": resp.time, "totalFees": resp.totalFees, "txcount": resp.txcount}
+
           // console.log(resp);
-          block_array.push(resp);
+          block_array.push(obj);
         }
 
-        // console.log(block_array);
+        console.log(block_array);
         return block_array;
       };
 
