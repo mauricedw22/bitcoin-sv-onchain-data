@@ -42,20 +42,20 @@ export class ChartsComponent implements OnInit {
 
     ngOnInit() {
 
-      async function prepare_array() {
-        let arr1 = [];
+      // async function prepare_array() {
+      //   let arr1 = [];
 
-        for(let i=0;i<100;i++){
-          const response = await fetch('https://api.whatsonchain.com/v1/bsv/main/block/height/'); //https://api.whatsonchain.com/v1/bsv/main/chain/info
-          const body = await response.text();
-          const resp = JSON.parse(body);
+      //   for(let i=0;i<100;i++){
+      //     const response = await fetch('https://api.whatsonchain.com/v1/bsv/main/block/height/'); //https://api.whatsonchain.com/v1/bsv/main/chain/info
+      //     const body = await response.text();
+      //     const resp = JSON.parse(body);
 
-          console.log(resp.blocks);
-          arr1.push(resp.blocks);
-        }
+      //     console.log(resp.blocks);
+      //     arr1.push(resp.blocks);
+      //   }
 
-        return arr1;
-      };
+      //   return arr1;
+      // };
 
       // prepare_array();
 
