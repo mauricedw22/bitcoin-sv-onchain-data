@@ -37,8 +37,10 @@ export class ChartsComponent implements OnInit {
     constructor(private chartsApiService: ChartsApiService) {}
     ngOnInit() {
 
+      let block_array: Array<any> = [];
+
       async function prepare_array() {
-        let arr1 = [];
+        // let arr1 = [];
 
         const response = await fetch('https://api.whatsonchain.com/v1/bsv/main/chain/info');
         const body = await response.text();
@@ -51,14 +53,14 @@ export class ChartsComponent implements OnInit {
           const resp = JSON.parse(resbody);
 
           // console.log(resp);
-          arr1.push(resp);
+          block_array.push(resp);
         }
 
-        // console.log(arr1);
-        return arr1;
+        // console.log(block_array);
+        return block_array;
       };
 
-      // this.block_array = prepare_array();
+      prepare_array();
 
       this.chartsApiService.getChainData().subscribe((res)=>{
         this.result = JSON.stringify(res);
@@ -68,15 +70,15 @@ export class ChartsComponent implements OnInit {
         console.log("An error accessing Charts-Api Service");
       })
 
-      for(let i=0;i<this.block_array.length;i++){
-        this.chartsApiService.getBlockData(this.block_array[i]).subscribe((res)=>{
-          this.result1 = JSON.stringify(res);
-          this.blockdata = JSON.parse(this.result1);
-          console.log(this.blockdata)
-        }, (error) => {
-          console.log("An error accessing Charts-Api Service");
-        })
-      }
+      // for(let i=0;i<this.block_array.length;i++){
+      //   this.chartsApiService.getBlockData(this.block_array[i]).subscribe((res)=>{
+      //     this.result1 = JSON.stringify(res);
+      //     this.blockdata = JSON.parse(this.result1);
+      //     console.log(this.blockdata)
+      //   }, (error) => {
+      //     console.log("An error accessing Charts-Api Service");
+      //   })
+      // }
 
       this.basicData = {
           labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
