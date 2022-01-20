@@ -32,14 +32,9 @@ export class ChartsComponent implements OnInit {
     result: any;
     result1: any;
 
-    block_array: Array<Number> = [];
+    block_array: Array<any> = [];
 
-    // subscription: Subscription;
-
-     // config: AppConfig;
-
-    constructor(private chartsApiService: ChartsApiService) {} //private messageService: MessageService, private configService: AppConfigService
-
+    constructor(private chartsApiService: ChartsApiService) {}
     ngOnInit() {
 
       async function prepare_array() {
@@ -63,7 +58,7 @@ export class ChartsComponent implements OnInit {
         return arr1;
       };
 
-      prepare_array();
+      // this.block_array = prepare_array();
 
       this.chartsApiService.getChainData().subscribe((res)=>{
         this.result = JSON.stringify(res);
