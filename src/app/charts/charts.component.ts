@@ -39,6 +39,9 @@ export class ChartsComponent implements OnInit {
 
       let block_array: Array<any> = [];
       let totalFees_array: Array<any> = [];
+      let size_array: Array<any> = [];
+      let txcount_array: Array<any> = [];
+      let time_array: Array<any> = [];
 
       async function prepare_array() {
         // let arr1 = [];
@@ -58,6 +61,10 @@ export class ChartsComponent implements OnInit {
           // console.log(resp);
           // block_array.push(obj);
           totalFees_array.push(obj.totalFees)
+          size_array.push(obj.size)
+          txcount_array.push(obj.txcount)
+          time_array.push(obj.time)
+
         }
 
         // console.log(block_array);
