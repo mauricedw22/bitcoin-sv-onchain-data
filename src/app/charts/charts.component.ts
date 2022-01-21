@@ -37,12 +37,14 @@ export class ChartsComponent implements OnInit {
     constructor(private chartsApiService: ChartsApiService) {}
     ngOnInit() {
 
-      let block_array: Array<any> = [];
+      // let block_array: Array<any> = [];
       let totalFees_array: Array<any> = [];
       let size_array: Array<any> = [];
       let txcount_array: Array<any> = [];
       let time_array: Array<any> = [];
       let height_array: Array<any> = [];
+
+      let txn_data: Object = {};
 
       async function prepare_array() {
         // let arr1 = [];
@@ -67,6 +69,8 @@ export class ChartsComponent implements OnInit {
           time_array.push(obj.time)
           height_array.push(obj.height)
 
+          // this.basicData1.labels = height_array;
+
         }
 
         console.log(height_array);
@@ -76,23 +80,30 @@ export class ChartsComponent implements OnInit {
 
       prepare_array();
 
-    //   this.chartsApiService.getChainData().subscribe((res)=>{
-    //     this.result = JSON.stringify(res);
-    //     this.data = JSON.parse(this.result);
-    //     console.log(this.data)
-    //   }, (error) => {
-    //     console.log("An error accessing Charts-Api Service");
-    //   })
+      this.chartsApiService.getChainData().subscribe((res)=>{
+        this.result = JSON.stringify(res);
+        this.data = JSON.parse(this.result);
+        console.log(this.data)
 
-      // for(let i=0;i<this.block_array.length;i++){
-      //   this.chartsApiService.getBlockData(this.block_array[i]).subscribe((res)=>{
-      //     this.result1 = JSON.stringify(res);
-      //     this.blockdata = JSON.parse(this.result1);
-      //     console.log(this.blockdata)
-      //   }, (error) => {
-      //     console.log("An error accessing Charts-Api Service");
-      //   })
-      // }
+        this.chartsApiService.getBlockData(this.data.blocks).subscribe((res)=>{
+            this.result1 = JSON.stringify(res);
+            this.blockdata = JSON.parse(this.result1);
+            console.log(this.blockdata)
+          }, (error) => {
+            console.log("An error accessing Charts-Api Service");
+          })
+
+      }, (error) => {
+        console.log("An error accessing Charts-Api Service");
+      })
+
+        // this.chartsApiService.getBlockData(this.data.blocks).subscribe((res)=>{
+        //   this.result1 = JSON.stringify(res);
+        //   this.blockdata = JSON.parse(this.result1);
+        //   console.log(this.blockdata)
+        // }, (error) => {
+        //   console.log("An error accessing Charts-Api Service");
+        // })
 
       this.basicData = {
           labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -114,18 +125,18 @@ export class ChartsComponent implements OnInit {
           ]
       };
 
-      this.basicData1 = {
+    this.basicData1 = {
         labels: height_array, // ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
         datasets: [
             {
-                label: 'Txn Fees',
+                label: 'Txn Fees Per Block',
                 data: totalFees_array,
                 fill: false,
                 borderColor: '#42A5F5',
                 tension: .4
             },
         ]
-      };
+    };      
 
     this.basicData2 = {
       labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
