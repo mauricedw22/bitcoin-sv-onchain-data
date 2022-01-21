@@ -32,12 +32,13 @@ export class ChartsComponent implements OnInit {
     result: any;
     result1: any;
 
-    block_array: Array<any> = [];
+    // block_array: Array<any> = [];
 
     constructor(private chartsApiService: ChartsApiService) {}
     ngOnInit() {
 
       let block_array: Array<any> = [];
+      let totalFees_array: Array<any> = [];
 
       async function prepare_array() {
         // let arr1 = [];
@@ -56,10 +57,12 @@ export class ChartsComponent implements OnInit {
 
           // console.log(resp);
           block_array.push(obj);
+          totalFees_array.push(obj.totalFees)
         }
 
-        console.log(block_array);
-        return block_array;
+        // console.log(block_array);
+        console.log(totalFees_array);
+        // return block_array;
       };
 
       prepare_array();
