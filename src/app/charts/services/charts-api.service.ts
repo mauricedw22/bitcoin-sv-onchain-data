@@ -31,10 +31,6 @@ export class ChartsApiService {
     return this.http.get(this.info_url);
   }
 
-  getBlockHeightData(){
-
-  }
-
   getBlockData(num: Number){
 
     let url = this.blockbyheight_url + num;
@@ -44,18 +40,5 @@ export class ChartsApiService {
     return this.http.get(url);
 
   }
-
-  getTxnVolumeData(){
-
-  }
-
-  getBlockSizeData(){
-
-  }
- 
-  getTotalFeeData(){
-    
-
-  }
-
+  
 }
