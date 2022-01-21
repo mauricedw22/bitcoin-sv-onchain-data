@@ -40,5 +40,5 @@ export class ChartsApiService {
     return this.http.get(url);
 
   }
-  
+
 }

@@ -83,9 +83,14 @@ export class ChartsComponent implements OnInit {
       this.chartsApiService.getChainData().subscribe((res)=>{
         this.result = JSON.stringify(res);
         this.data = JSON.parse(this.result);
-        console.log(this.data)
+        console.log(this.data);
 
-        this.chartsApiService.getBlockData(this.data.blocks).subscribe((res)=>{
+        const blocks: Array<Number> = [];
+        for(let i=this.data.blocks-100; i<this.data.blocks; i++){
+            blocks.push(this.data[i].blocks);
+        }
+
+        this.chartsApiService.getBlockData(blocks[0]).subscribe((res)=>{
             this.result1 = JSON.stringify(res);
             this.blockdata = JSON.parse(this.result1);
             console.log(this.blockdata)
@@ -97,13 +102,13 @@ export class ChartsComponent implements OnInit {
         console.log("An error accessing Charts-Api Service");
       })
 
-        // this.chartsApiService.getBlockData(this.data.blocks).subscribe((res)=>{
-        //   this.result1 = JSON.stringify(res);
-        //   this.blockdata = JSON.parse(this.result1);
-        //   console.log(this.blockdata)
-        // }, (error) => {
-        //   console.log("An error accessing Charts-Api Service");
-        // })
+    // this.chartsApiService.getBlockData(this.data.blocks).subscribe((res)=>{
+    //   this.result1 = JSON.stringify(res);
+    //   this.blockdata = JSON.parse(this.result1);
+    //   console.log(this.blockdata)
+    // }, (error) => {
+    //   console.log("An error accessing Charts-Api Service");
+    // })
 
       this.basicData = {
           labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
