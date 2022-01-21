@@ -42,6 +42,7 @@ export class ChartsComponent implements OnInit {
       let size_array: Array<any> = [];
       let txcount_array: Array<any> = [];
       let time_array: Array<any> = [];
+      let height_array: Array<any> = [];
 
       async function prepare_array() {
         // let arr1 = [];
@@ -64,23 +65,24 @@ export class ChartsComponent implements OnInit {
           size_array.push(obj.size)
           txcount_array.push(obj.txcount)
           time_array.push(obj.time)
+          height_array.push(obj.height)
 
         }
 
-        // console.log(block_array);
+        console.log(height_array);
         console.log(totalFees_array);
         // return block_array;
       };
 
       prepare_array();
 
-      this.chartsApiService.getChainData().subscribe((res)=>{
-        this.result = JSON.stringify(res);
-        this.data = JSON.parse(this.result);
-        console.log(this.data)
-      }, (error) => {
-        console.log("An error accessing Charts-Api Service");
-      })
+    //   this.chartsApiService.getChainData().subscribe((res)=>{
+    //     this.result = JSON.stringify(res);
+    //     this.data = JSON.parse(this.result);
+    //     console.log(this.data)
+    //   }, (error) => {
+    //     console.log("An error accessing Charts-Api Service");
+    //   })
 
       // for(let i=0;i<this.block_array.length;i++){
       //   this.chartsApiService.getBlockData(this.block_array[i]).subscribe((res)=>{
@@ -113,11 +115,11 @@ export class ChartsComponent implements OnInit {
       };
 
       this.basicData1 = {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        labels: height_array, // ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
         datasets: [
             {
-                label: 'Block Height',
-                data: [65, 59, 80, 81, 56, 55, 40],
+                label: 'Txn Fees',
+                data: totalFees_array,
                 fill: false,
                 borderColor: '#42A5F5',
                 tension: .4
