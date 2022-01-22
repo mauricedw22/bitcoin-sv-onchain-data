@@ -108,9 +108,35 @@ export class ChartsComponent implements OnInit {
             ]
           };
 
-        console.log(this.basicData1);
+          this.basicData3 = {
+            labels: height_array,
+            datasets: [
+                {
+                    label: 'Block Size',
+                    data: size_array,
+                    fill: false,
+                    borderColor: '#EAB201',
+                    tension: .4
+                },
+            ]
+          };
+      
+          this.basicData4 = {
+            labels: height_array,
+            datasets: [
+                {
+                    label: 'Block Time',
+                    data: time_array,
+                    fill: false,
+                    borderColor: '#EAB201',
+                    tension: .4
+                },
+            ]
+          };
 
-      }, 40000);
+          console.log(this.basicData1);
+
+      }, 35000);
 
       this.chartsApiService.getChainData().subscribe((res)=>{
         this.result = JSON.stringify(res);
@@ -188,31 +214,31 @@ export class ChartsComponent implements OnInit {
     //   ]
     // };
 
-    this.basicData3 = {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-      datasets: [
-          {
-              label: 'Block Height',
-              data: [65, 59, 80, 81, 56, 55, 40],
-              fill: false,
-              borderColor: '#42A5F5',
-              tension: .4
-          },
-      ]
-    };
+    // this.basicData3 = {
+    //   labels: height_array,
+    //   datasets: [
+    //       {
+    //           label: 'Block Size',
+    //           data: size_array,
+    //           fill: false,
+    //           borderColor: '#EAB201',
+    //           tension: .4
+    //       },
+    //   ]
+    // };
 
-    this.basicData4 = {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-      datasets: [
-          {
-              label: 'Block Height',
-              data: [65, 59, 80, 81, 56, 55, 40],
-              fill: false,
-              borderColor: '#42A5F5',
-              tension: .4
-          },
-      ]
-    };
+    // this.basicData4 = {
+    //   labels: height_array,
+    //   datasets: [
+    //       {
+    //           label: 'Block Time',
+    //           data: time_array,
+    //           fill: false,
+    //           borderColor: '#EAB201',
+    //           tension: .4
+    //       },
+    //   ]
+    // };
 
     this.basicData5 = {
       labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
