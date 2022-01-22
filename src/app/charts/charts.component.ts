@@ -44,7 +44,7 @@ export class ChartsComponent implements OnInit {
       let time_array: Array<any> = [];
       let height_array: Array<any> = [];
 
-      let txn_data: Object = {};
+      // let txn_data: Object = {};
 
       async function prepare_array() {
         // let arr1 = [];
@@ -79,6 +79,25 @@ export class ChartsComponent implements OnInit {
       };
 
       prepare_array();
+
+      setTimeout(() => {
+
+        this.basicData1 = {
+            labels: height_array, // ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            datasets: [
+                {
+                    label: 'Txn Fees Per Block',
+                    data: totalFees_array,
+                    fill: false,
+                    borderColor: '#42A5F5',
+                    tension: .4
+                },
+            ]
+        };
+
+        console.log(this.basicData1);
+
+      }, 40000);
 
       this.chartsApiService.getChainData().subscribe((res)=>{
         this.result = JSON.stringify(res);
