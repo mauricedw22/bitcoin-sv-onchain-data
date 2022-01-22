@@ -86,14 +86,27 @@ export class ChartsComponent implements OnInit {
             labels: height_array, // ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
             datasets: [
                 {
-                    label: 'Txn Fees Per Block',
+                    label: 'Txn Fees per Block',
                     data: totalFees_array,
                     fill: false,
-                    borderColor: '#42A5F5',
+                    borderColor: '#EAB201',
                     tension: .4
                 },
             ]
         };
+
+        this.basicData2 = {
+            labels: height_array,
+            datasets: [
+                {
+                    label: 'Txn Count per Block',
+                    data: txcount_array,
+                    fill: false,
+                    borderColor: '#EAB201',
+                    tension: .4
+                },
+            ]
+          };
 
         console.log(this.basicData1);
 
@@ -149,31 +162,31 @@ export class ChartsComponent implements OnInit {
           ]
       };
 
-    this.basicData1 = {
-        labels: height_array, // ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-        datasets: [
-            {
-                label: 'Txn Fees Per Block',
-                data: totalFees_array,
-                fill: false,
-                borderColor: '#42A5F5',
-                tension: .4
-            },
-        ]
-    };      
+    // this.basicData1 = {
+    //     labels: height_array, // ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    //     datasets: [
+    //         {
+    //             label: 'Txn Fees Per Block',
+    //             data: totalFees_array,
+    //             fill: false,
+    //             borderColor: '#EAB201',
+    //             tension: .4
+    //         },
+    //     ]
+    // };      
 
-    this.basicData2 = {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-      datasets: [
-          {
-              label: 'Block Height',
-              data: [65, 59, 80, 81, 56, 55, 40],
-              fill: false,
-              borderColor: '#42A5F5',
-              tension: .4
-          },
-      ]
-    };
+    // this.basicData2 = {
+    //   labels: height_array, // ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    //   datasets: [
+    //       {
+    //           label: 'Txn Count per Block',
+    //           data: txcount_array,
+    //           fill: false,
+    //           borderColor: '#EAB201',
+    //           tension: .4
+    //       },
+    //   ]
+    // };
 
     this.basicData3 = {
       labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
