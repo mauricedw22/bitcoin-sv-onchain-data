@@ -15,7 +15,7 @@ export class ChartsComponent implements OnInit {
     basicData2: any;
     basicData3: any;
     basicData4: any;
-    basicData5: any;
+    txndata1: any;
 
 
     multiAxisData: any;
@@ -25,6 +25,8 @@ export class ChartsComponent implements OnInit {
     lineStylesData: any;
 
     basicOptions: any;
+
+    chartOptions: any;
 
     data: any;
     blockdata: any;
@@ -134,31 +136,50 @@ export class ChartsComponent implements OnInit {
             ]
           };
 
+          this.txndata1 = {
+            labels: ['BTC','BCH','BSV'],
+            datasets: [
+                {
+                    data: [6.36, 1.39, 92.2],
+                    backgroundColor: [
+                        "#42A5F5",
+                        "#66BB6A",
+                        "#FFA726"
+                    ],
+                    hoverBackgroundColor: [
+                        "#64B5F6",
+                        "#81C784",
+                        "#FFB74D"
+                    ]
+                }
+            ]
+          };
+
           console.log(this.basicData1);
 
       }, 35000);
 
-      this.chartsApiService.getChainData().subscribe((res)=>{
-        this.result = JSON.stringify(res);
-        this.data = JSON.parse(this.result);
-        console.log(this.data);
+    //   this.chartsApiService.getChainData().subscribe((res)=>{
+    //     this.result = JSON.stringify(res);
+    //     this.data = JSON.parse(this.result);
+    //     console.log(this.data);
 
-        const blocks: Array<Number> = [];
-        for(let i=this.data.blocks-100; i<this.data.blocks; i++){
-            blocks.push(this.data[i].blocks);
-        }
+    //     const blocks: Array<Number> = [];
+    //     for(let i=this.data.blocks-100; i<this.data.blocks; i++){
+    //         blocks.push(this.data[i].blocks);
+    //     }
 
-        this.chartsApiService.getBlockData(blocks[0]).subscribe((res)=>{
-            this.result1 = JSON.stringify(res);
-            this.blockdata = JSON.parse(this.result1);
-            console.log(this.blockdata)
-          }, (error) => {
-            console.log("An error accessing Charts-Api Service");
-          })
+    //     this.chartsApiService.getBlockData(blocks[0]).subscribe((res)=>{
+    //         this.result1 = JSON.stringify(res);
+    //         this.blockdata = JSON.parse(this.result1);
+    //         console.log(this.blockdata)
+    //       }, (error) => {
+    //         console.log("An error accessing Charts-Api Service");
+    //       })
 
-      }, (error) => {
-        console.log("An error accessing Charts-Api Service");
-      })
+    //   }, (error) => {
+    //     console.log("An error accessing Charts-Api Service");
+    //   })
 
     // this.chartsApiService.getBlockData(this.data.blocks).subscribe((res)=>{
     //   this.result1 = JSON.stringify(res);
@@ -168,25 +189,25 @@ export class ChartsComponent implements OnInit {
     //   console.log("An error accessing Charts-Api Service");
     // })
 
-      this.basicData = {
-          labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-          datasets: [
-              {
-                  label: 'First Dataset',
-                  data: [65, 59, 80, 81, 56, 55, 40],
-                  fill: false,
-                  borderColor: '#42A5F5',
-                  tension: .4
-              },
-              // {
-              //     label: 'Second Dataset',
-              //     data: [28, 48, 40, 19, 86, 27, 90],
-              //     fill: false,
-              //     borderColor: '#FFA726',
-              //     tension: .4
-              // }
-          ]
-      };
+    //   this.basicData = {
+    //       labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    //       datasets: [
+    //           {
+    //               label: 'First Dataset',
+    //               data: [65, 59, 80, 81, 56, 55, 40],
+    //               fill: false,
+    //               borderColor: '#42A5F5',
+    //               tension: .4
+    //           },
+    //           {
+    //               label: 'Second Dataset',
+    //               data: [28, 48, 40, 19, 86, 27, 90],
+    //               fill: false,
+    //               borderColor: '#FFA726',
+    //               tension: .4
+    //           }
+    //       ]
+    //   };
 
     // this.basicData1 = {
     //     labels: height_array, // ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -240,18 +261,18 @@ export class ChartsComponent implements OnInit {
     //   ]
     // };
 
-    this.basicData5 = {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-      datasets: [
-          {
-              label: 'Block Height',
-              data: [65, 59, 80, 81, 56, 55, 40],
-              fill: false,
-              borderColor: '#42A5F5',
-              tension: .4
-          },
-      ]
-    };
+    // this.basicData5 = {
+    //   labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    //   datasets: [
+    //       {
+    //           label: 'Block Height',
+    //           data: [65, 59, 80, 81, 56, 55, 40],
+    //           fill: false,
+    //           borderColor: '#42A5F5',
+    //           tension: .4
+    //       },
+    //   ]
+    // };
 
       this.multiAxisData = {
           labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
