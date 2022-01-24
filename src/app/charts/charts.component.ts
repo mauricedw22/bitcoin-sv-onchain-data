@@ -142,9 +142,9 @@ export class ChartsComponent implements OnInit {
                 {
                     data: [6.36, 1.39, 92.2],
                     backgroundColor: [
-                        "#42A5F5",
+                        "#1E90FF",
                         "#66BB6A",
-                        "#FFA726"
+                        "#EAB201"
                     ],
                     hoverBackgroundColor: [
                         "#64B5F6",
