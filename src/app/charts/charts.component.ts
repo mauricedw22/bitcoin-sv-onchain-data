@@ -148,7 +148,7 @@ export class ChartsComponent implements OnInit {
                     ],
                     hoverBackgroundColor: [
                         "#64B5F6",
-                        "#81C784", // new color
+                        "#81C784",
                         "#FFB74D"
                     ]
                 }
