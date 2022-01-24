@@ -2,6 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.8.
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7d893a18-db82-44ea-afc0-6a326c56a793/deploy-status)](https://app.netlify.com/sites/naughty-meitner-f843b6/deploys)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
