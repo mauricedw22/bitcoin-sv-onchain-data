@@ -63,15 +63,11 @@ export class ChartsComponent implements OnInit {
 
           let obj = {"height": resp.height, "size": resp.size, "time": resp.time, "totalFees": resp.totalFees, "txcount": resp.txcount}
 
-          // console.log(resp);
-          // block_array.push(obj);
           totalFees_array.push(obj.totalFees)
           size_array.push(obj.size)
           txcount_array.push(obj.txcount)
           time_array.push(obj.time)
           height_array.push(obj.height)
-
-          // this.basicData1.labels = height_array;
 
         }
 
