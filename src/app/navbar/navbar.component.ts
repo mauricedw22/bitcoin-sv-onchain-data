@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
+  loading: string = "Loading data... Please wait.";
+
   constructor() { }
 
   ngOnInit(): void {
+
+    setTimeout(() => {
+
+      this.loading = "Data load complete!"
+
+    }, 35000)
   }
 
 }
